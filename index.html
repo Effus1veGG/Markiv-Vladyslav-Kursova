@@ -349,6 +349,18 @@
               </h2>
               <p>Заповни форму, щоб ми звʼязались з тобою!</p>
               <form name="contact-form" autocomplete="off">
+                <input type="hidden" name="project_name" value="Shop Bakery" />
+                <input
+                  type="hidden"
+                  name="admin_email"
+                  value="skm33669@nezid.com"
+                />
+                <input
+                  type="hidden"
+                  name="form_subject"
+                  value="contact-form-section"
+                />
+
                 <div class="contact-section__form-field input">
                   <label class="input__label visually-hidden" for="user-name">
                     Імʼя
@@ -499,6 +511,10 @@
           Залишіть заявку та наш спеціаліст зв'яжеться з Вами!
         </p>
         <form name="modal-form" autocomplete="off">
+          <input type="hidden" name="project_name" value="Shop Bakery" />
+          <input type="hidden" name="admin_email" value="skm33669@nezid.com" />
+          <input type="hidden" name="form_subject" value="modal form" />
+
           <div class="modal__form-field input">
             <label class="input__label visually-hidden" for="user-name">
               Імʼя
@@ -553,6 +569,8 @@
       </div>
     </div>
 
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="./js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="./js/formats-slider.js"></script>
     <script src="./js/mobile-menu.js"></script>
