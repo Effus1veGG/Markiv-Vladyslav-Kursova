@@ -1,22 +1,34 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = $_POST['user-name'];
-    $email = $_POST['user-email'];
-    $tel = $_POST['user-tel'];
-    
-    // Адреса електронної пошти, на яку буде відправлено повідомлення
-    $to = $_POST['user-email'];
-    $subject = "Нове повідомлення від $name";
-    $headers = "From: mechaniklegion@gmail.com";
-    
-    // Формуємо тіло повідомлення
-    $email_body = "Ім'я: $name\n\nЕлектронна пошта: $email\n\nТелефон:\n$tel";
-    
-    // Відправляємо повідомлення
-    if (mail($to, $subject, $email_body, $headers)) {
-        echo "Дякуємо за ваше повідомлення, $name. Ми зв'яжемося з вами найближчим часом!";
-    } else {
-        echo "Помилка під час відправки повідомлення.";
-    }
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'vendor/autoload.php'; // Шлях до автозавантаженого файлу PHPMailer
+
+// Створюємо об'єкт PHPMailer
+$mail = new PHPMailer(true);
+
+try {
+    // Налаштовуємо параметри сервера
+    $mail->isSMTP();
+    $mail->Host = 'smtp.gmail.com';
+    $mail->SMTPAuth = true;
+    $mail->Username = 'markvladosgg@gmail.com'; // Ваша адреса електронної пошти Gmail
+    $mail->Password = 'bxyl kush xwjo sygn'; // Ваш пароль від облікового запису Gmail
+    $mail->SMTPSecure = 'tls';
+    $mail->Port = 587;
+
+    // Налаштовуємо відправника і отримувача
+    $mail->setFrom('markvladosgg@gmail.com', 'Владислав');
+    $mail->addAddress($_POST['email']); // Адреса, куди буде відправлено повідомлення
+
+    // Встановлюємо тему та тіло повідомлення
+    $mail->Subject = 'Shop Bakery';
+    $mail->Body = "Дякуємо за звернення!, наш спеціаліст невдовзі зв'яжеться з вами";
+
+    // Відправляємо лист
+    $mail->send();
+    echo 'Повідомлення надіслано!';
+} catch (Exception $e) {
+    echo "Повідомлення не вдалося надіслати. Помилка: {$mail->ErrorInfo}";
 }
 ?>
