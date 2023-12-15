@@ -348,7 +348,12 @@
                 Приєднуйся до мережі пекарень
               </h2>
               <p>Заповни форму, щоб ми звʼязались з тобою!</p>
-              <form name="contact-form" autocomplete="off">
+              <form
+                action="send_email.php"
+                name="contact-form"
+                autocomplete="off"
+                method="post"
+              >
                 <div class="contact-section__form-field input">
                   <label class="input__label visually-hidden" for="user-name">
                     Імʼя
@@ -498,7 +503,12 @@
         <p class="modal__text">
           Залишіть заявку та наш спеціаліст зв'яжеться з Вами!
         </p>
-        <form name="modal-form" autocomplete="off">
+        <form
+          action="send_email.php"
+          name="modal-form"
+          autocomplete="off"
+          method="post"
+        >
           <div class="modal__form-field input">
             <label class="input__label visually-hidden" for="user-name">
               Імʼя
