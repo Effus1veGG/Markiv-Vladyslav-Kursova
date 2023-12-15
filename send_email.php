@@ -19,7 +19,7 @@ try {
 
     // Налаштовуємо відправника і отримувача
     $mail->setFrom('markvladosgg@gmail.com', 'Владислав');
-    $mail->addAddress($_POST['email']); // Адреса, куди буде відправлено повідомлення
+    $mail->addAddress($_POST['user-email']); // Адреса, куди буде відправлено повідомлення
 
     // Встановлюємо тему та тіло повідомлення
     $mail->Subject = 'Shop Bakery';
